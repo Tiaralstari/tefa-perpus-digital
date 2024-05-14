@@ -31,7 +31,7 @@
             <div class="col-lg-5">
                     <div class="card bg-warning rounded-5 mt-5">
                         <div class="card-body">
-                            <h4>3 Pengunjung</h4>
+                            <nuxt-link to="/pengunjung"><h2 class="font">{{ jumlahpengunjung }} pengunjung</h2></nuxt-link>
                         </div>
                     </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="col-lg-5">
                     <div class="card bg-primary rounded-5 mt-5">
                         <div class="card-body">
-                            <h4 style="font-family: ;"> 180 BUKU</h4>    
+                            <nuxt-link to="/buku"><h2 style="font-family: ;"> {{ jumlahbuku }} buku</h2></nuxt-link>
                         </div>
                     </div>
             </div>
@@ -47,6 +47,30 @@
             <Chart />
     </div>
 </template>
+
+<script setup>
+const supabase = useSupabaseClient();
+const jumlahpengunjung = ref (0);
+const jumlahbuku = ref (0);
+
+async function ambiljumlahpengunjung() {
+const { data,error, count} = await supabase
+    .from("pengunjung")
+    .select("*", {count: 'exact'});
+    if (count) jumlahpengunjung.value = count;
+}
+
+async function ambiljumlahbuku() {
+    const { data,error, count} = await supabase
+    .from("buku")
+    .select("*", {count: 'exact'});
+    if (count) jumlahbuku.value = count;
+}
+onMounted(() => {
+    ambiljumlahpengunjung();
+    ambiljumlahbuku();
+})
+</script>
 
 <style scoped>
 .card {
@@ -82,7 +106,7 @@ h2{
 }
  
 h3{
-    color: black;
+    color: rgb(195, 97, 97);
     font-size: 60px;
     text-align: center;
     margin: 60px;

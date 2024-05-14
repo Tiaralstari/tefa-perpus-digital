@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="text-center my-4">ISI BUKU KUNJUNGAN</h2>
+                <h2 class="text-center  my-4">ISI BUKU KUNJUNGAN</h2>
                 <form @submit.prevent="kirimData">
                     <div class="mb-3"></div>
                     <input v-model="form.nama" type="text" class="form-control form-control-lg rounded-5"
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-lg rounded-5 px-5 bg-primary text-white">KIRIM</button>
-                    <nuxt-link to="../"><button type="submit" class="btn btn-lg rounded-5 px-5 bg-secondary text-white" style="float: right;">KEMBALI</button></nuxt-link>
+                    <nuxt-link to="../"><button type="submit" class="btn btn-lg rounded-5 px-5 bg-danger text-white" style="float: right;">KEMBALI</button></nuxt-link>
                 </form>
             </div>
         </div>
