@@ -11,7 +11,7 @@
                 <div class="my-3 tex-muted">menampilkan {{visitors.length }} dari {{jumlah}}</div>
                 <table class="table table-bordered">
                     <thead>
-                        <tr align="center">
+                        <tr text-center>
                             <td>NO</td>
                             <td>NAMA</td>
                             <td>KEANGGOTAAN</td>
@@ -36,6 +36,10 @@
 </template>
 
 <script setup>
+useHead({
+    title:'aplikasi perpus digital',
+    meta:[{name:'description', content:'selamat mengujungi'}]
+})
 const supabase = useSupabaseClient();
 const keyword = ref('')
 const visitors = ref ([])

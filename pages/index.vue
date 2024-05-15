@@ -49,6 +49,10 @@
 </template>
 
 <script setup>
+useHead({
+    title:'aplikasi perpus digital',
+    meta:[{name:'description', content:'selamat datang di aplikasi perpus digital SMKN 4 tsm'}]
+})
 const supabase = useSupabaseClient();
 const jumlahpengunjung = ref (0);
 const jumlahbuku = ref (0);

@@ -29,6 +29,10 @@
 
 
 <script setup>
+useHead({
+    title:'aplikasi perpus digital',
+    meta:[{name:'description', content:'halaman detail buku'}]
+})
 const supabase = useSupabaseClient()
 
 const route = useRoute()
